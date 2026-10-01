@@ -111,8 +111,10 @@ def status(token: str):
 
 
 def resolve_repo(token: str, login: str) -> str:
-    for name in (REPO_NAME_PREFERRED, REPO_NAME_FALLBACK):
-        code, _ = api("GET", f"/repos/{login}/{name}", token)
+    # GitHub 会把仓库名中的空格规范化为连字符，优先探测回退名
+    from urllib.parse import quote
+    for name in (REPO_NAME_FALLBACK, REPO_NAME_PREFERRED):
+        code, _ = api("GET", f"/repos/{login}/{quote(name)}", token)
         if code == 200:
             return name
     raise SystemExit("找不到仓库，请先运行 create")
