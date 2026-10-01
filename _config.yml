@@ -1,0 +1,13 @@
+# Jekyll 站点配置 —— 《新闻联播》文字稿存档
+title: 新闻联播文字稿
+description: 中央电视台《新闻联播》文字稿逐日存档（2002 ~ 2026），按播出顺序收录每期全部条目
+lang: zh-CN
+url: "https://tricrystal.github.io"
+baseurl: "/CCTV-News-article"   # GitHub Pages 项目页路径（与仓库名一致）
+markdown: kramdown
+# 仓库自述与工具脚本不作为站点页面发布
+exclude:
+  - README.md
+  - convert_to_md.py
+  - github_setup.py
+  - LICENSE

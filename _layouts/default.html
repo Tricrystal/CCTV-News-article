@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | default: site.title }} · {{ site.title }}</title>
+<style>
+  :root { --accent:#b03a2e; --text:#26221e; --muted:#7a736a; --line:#e7e1d8; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+         color:var(--text); line-height:1.9; background:#faf8f5; }
+  header.site { background:#fff; border-bottom:1px solid var(--line); }
+  header.site .wrap { max-width:880px; margin:0 auto; padding:14px 20px;
+                      display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; }
+  header.site a.brand { font-weight:700; font-size:1.15rem; color:var(--accent); text-decoration:none; letter-spacing:.02em; }
+  header.site nav a { color:var(--muted); text-decoration:none; margin-left:18px; font-size:.95rem; }
+  header.site nav a:hover { color:var(--accent); }
+  main { max-width:880px; margin:0 auto; padding:30px 20px 60px; }
+  h1 { font-size:1.5rem; line-height:1.4; border-bottom:2px solid var(--accent); padding-bottom:.45em; }
+  h2 { font-size:1.18rem; line-height:1.55; margin-top:2.1em; }
+  h2 + p { margin-top:.5em; }
+  blockquote { margin:1em 0 0; padding:.65em 1.1em; background:#f2ede6; border-left:4px solid var(--accent);
+               color:var(--muted); font-size:.95rem; }
+  blockquote p { margin:0; }
+  a { color:#1a5fb4; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  footer.site { max-width:880px; margin:0 auto; padding:18px 20px 40px; color:var(--muted);
+                font-size:.85rem; border-top:1px solid var(--line); }
+  @media (prefers-color-scheme: dark) {
+    :root { --text:#d9d4cd; --muted:#9a938a; --line:#3a352f; }
+    body { background:#1e1b18; }
+    header.site { background:#26221e; }
+    blockquote { background:#2a2520; }
+  }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="{{ site.baseurl }}/">新闻联播文字稿</a>
+  <nav>
+    <a href="{{ site.baseurl }}/">首页</a>
+    <a href="https://github.com/Tricrystal/CCTV-News-article">GitHub 仓库</a>
+  </nav>
+</div></header>
+<main>
+{{ content }}
+</main>
+<footer class="site">
+  本站为非官方整理的《新闻联播》文字稿存档，仅供学习研究使用；内容版权归中央电视台所有。
+  文稿抓取自央视网历史存档页面，逐日转换生成。
+</footer>
+</body>
+</html>
