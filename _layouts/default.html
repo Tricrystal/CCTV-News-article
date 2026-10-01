@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page.title | default: site.title }} · {{ site.title }}</title>
+<title>{{ page.title | default: site.title }}{% unless page.title == site.title or page.title == nil %} · {{ site.title }}{% endunless %}</title>
 <style>
   :root { --accent:#b03a2e; --text:#26221e; --muted:#7a736a; --line:#e7e1d8; }
   * { box-sizing: border-box; }
