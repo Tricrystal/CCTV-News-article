@@ -71,9 +71,18 @@ def body_to_markdown(body: str) -> str:
     return "\n\n".join(paras)
 
 
+# 标题末尾的站点名后缀（cntv 时代与现行官网模板），仅作显示层清理，不改源数据
+TITLE_SUFFIX_RE = re.compile(r"_(?:新闻台_中国网络电视台|CCTV节目官网-.*|央视网(?:\([^)]*\))?|中国网络电视台)$")
+
+
+def title_display(title: str) -> str:
+    t = TITLE_SUFFIX_RE.sub("", title.strip()).strip()
+    return t
+
+
 def title_to_markdown(title: str) -> str:
     # 防止以 # 开头的标题被解析为标题层级
-    t = title.strip()
+    t = title_display(title)
     if t.startswith("#"):
         t = "\\" + t
     return t
